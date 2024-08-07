@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Documentexample</title>
+   <link rel="stylesheet" href="styles.css">
+
+
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <style>
+      * {
+
+         box-sizing: border-box;
+      }
+
+      body {
+         font-family: 'Poppins', sans-serif;
+         margin: 20px;
+         width: 100%;
+         height: 100vh;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .main {
+         width: 800px;
+         height: 400px;
+      }
+   </style>
+</head>
+
+<body>
+
+
+
+   <div class="main">
+      <h1 class="heading">Income Tax Calculator - FY 2024-2025</h1>
+      <p class="tax">E-file tax returns in 3 minutes - <a style="color: blueviolet;"
+            href="https://accounts.cleartax.in">Explore tax Filling </a>
+      </p>
+
+      <nav>
+
+         <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-BasicDetails-tab" data-bs-toggle="tab"
+               data-bs-target="#nav-BasicDetails" type="button" role="tab" aria-controls="nav-BasicDetails"
+               aria-selected="true">BasicDetails</button>
+            <button class="nav-link" id="nav-IncomeDetails-tab" data-bs-toggle="tab" data-bs-target="#nav-IncomeDetails"
+               type="button" role="tab" aria-controls="nav-IncomeDetails" aria-selected="false">IncomeDetails</button>
+            <button class="nav-link" id="nav-Deductions-tab" data-bs-toggle="tab" data-bs-target="#nav-Deductions"
+               type="button" role="tab" aria-controls="nav-Deductions" aria-selected="false">Deductions</button>
+            <button class="nav-link" id="nav-Summary-tab" data-bs-toggle="tab" data-bs-target="#nav-Summary"
+               type="button" role="tab" aria-controls="nav-Summary" aria-selected="false">Summary</button>
+
+         </div>
+      </nav>
+
+      <div class="tab-content" id="nav-tabContent">
+         <div class="tab-pane fade show active" id="nav-BasicDetails" role="tabpanel"
+            aria-labelledby="nav-BasicDetails-tab">
+
+            <p style="margin-top: 40px;">See how the latest budget impacts your tax calculation.Updated as per latest
+               budget on 1 February, 2024.
+            </p>
+
+            <h2 style="font-size:20px;">Which Financial Year do you want to calculate taxes for?</h2>
+            <form>
+
+               <input type="radio" id="fy-2024-2025" name="budget">
+               <label for="fy-2024-2025">FY 2024-2025 <span style="background-color: rgb(255, 162, 0);">Latest
+                     Budget</span> (Return to be filed between 1st April 2025 - 31st March 2026)</label><br><br>
+               <span>Your age</span><br>
+               <input type="radio" id="age1" name="age" value="0 to 60">
+               <label for="age1">0 to 60</label><br>
+               <input type="radio" id="age2" name="age" value="60 to 80">
+               <label for="age2">60 to 80</label><br>
+               <input type="radio" id="age3" name="age" value="80 & above">
+               <label for="age3">80 & above</label><br><br>
+            </form>
+            <button style="margin-top: 40px; margin-left: 300px; background-color: #00c8ff;"
+               class="btn btn-primary next-btn" type="button" data-next="#nav-IncomeDetails">Go to Next Page</button>
+         </div>
+
+
+         <div class="tab-pane fade" id="nav-IncomeDetails" role="tabpanel" aria-labelledby="nav-IncomeDetails-tab">
+
+            <div style=" margin-top:40px; cursor: pointer;">
+               <div style="display: flex; gap: 20px; cursor: pointer;">
+                  <div>
+                     Income from Salary <span class="info-icon" id="infoIcon"
+                        title="Salary before reducing HRA,LTA standard deduction and provissional tax.If applicable reduce leave encashment">ⓘ</span><br>
+                     <input type="text" id="salary" style="margin-top: 8px; width: 350px;"> <br>
+                  </div>
+                  <div>
+                     Exempt Allowances <span class="info-icon" id="infoIcon"
+                        title="HRA,LTA,Professional Tax and any Other Excemptions ">ⓘ</span><br>
+                     <input type="text" id="exemptAllowances" style="margin-top: 8px; width: 350px;">
+                  </div>
+               </div>
+               <div style="display: flex; gap: 20px;">
+                  <div style="margin-top: 5px; cursor: pointer;">
+                     Income from Interest <span class="info-icon" id="infoIcon"
+                        title="Includes interest from savings bank,deposits and other interest">ⓘ</span><br>
+                     <input type="text" id="interestIncome" style="margin-top: 8px; width: 350px;"> <br>
+                  </div>
+                  <div style="margin-top: 5px;cursor: pointer;">
+                     Interest on Home Loan- Self occupied <span class="info-icon" id="infoIcon"
+                        title="Intersetpaid on housing loan taken for self-occupied property">ⓘ</span><br>
+                     <input type="text" id="homeLoanSelf" style="margin-top: 8px;width:350px;">
+                  </div>
+               </div>
+               <div style="display: flex; gap: 20px; cursor: pointer;">
+                  <div style="margin-top: 5px;">
+                     Rental Income Received <span class="info-icon" id="infoIcon"
+                        title="Annual rent received on let-out property">ⓘ</span> <br>
+                     <input type="text" id="rentalIncome" style="margin-top: 8px; width: 350px;"> <br>
+                  </div>
+                  <div style="margin-top: 5px;cursor: pointer;">
+                     Interest on Home Loan- Let Out <span class="info-icon" id="infoIcon"
+                        title="Interest paid on housing loan taken for rented/let-out property">ⓘ</span> <br>
+                     <input type="text" id="homeLoanLetOut" style="margin-top: 8px; width: 350px;">
+                  </div>
+               </div>
+               <div style="margin-top: 8px; cursor: pointer;">Income from Digital Assets <span class="info-icon"
+                     id="infoIcon" title="Net income from Digital Assets,taxed at 30%">ⓘ</span> <br>
+                  <input type="text" id="digitalAssetsIncome" style="margin-top: 8px; width: 350px;"><br>
+               </div>
+               <div style="margin-top: 8px; cursor: pointer;">Other Income <span class="info-icon" id="infoIcon"
+                     title="Includes taxable freelancing income or any other taxable income">ⓘ</span><br>
+                  <input type="text" id="otherincome" style="margin-top: 8px; width: 350px;">
+               </div>
+            </div>
+            <button style="margin-top: 40px; margin-left: 300px; background-color: #00c8ff;"
+               class="btn btn-primary next-btn" type="button" data-next="#nav-Deductions">Go to Next Page</button>
+
+
+         </div>
+
+
+         <div class="tab-pane fade" id="nav-Deductions" role="tabpanel" aria-labelledby="nav-Deductions-tab">
+            <div style="margin-top: 40px; cursor: pointer;">
+               <div style="display: flex; gap: 20px; cursor: pointer;">
+                  <div>
+                     Basic Deductions - 80C <span class="info-icon" id="infoIcon"
+                        title="Amount invested/paid in tax saving instruments such as PPF, ELSS mutual funds ,LIC premium,etc.(max:1.5L)">ⓘ</span><br>
+                     <input type="text" id="basicDeductions" style="margin-top: 8px; width: 350px;"> <br>
+                  </div>
+                  <div>
+                     Interest from Deposits - 80TTA <span class="info-icon 1" id="infoIcon"
+                        title="Amount of interest income on deposits in savings account (includes fixed/recurring deposit interest in case of senioe citizen)">ⓘ</span>
+                     <br>
+                     <input type="text" id="interestDeposits" style="margin-top: 8px; width: 350px;">
+                  </div>
+               </div>
+               <div style="display: flex; gap: 20px;">
+                  <div style="margin-top: 8px; cursor: pointer;">
+                     Medical Insurance - 80D<span class="info-icon 1" id="infoIcon 1"
+                        title="Medicaal premium & preventive health checkup fees paid for self &family including parents">ⓘ</span><br>
+                     <input type="text" id="medicalInsurance" style="margin-top: 8px; width: 350px;"> <br>
+                  </div>
+                  <div style="margin-top: 5px;cursor: pointer;">
+                     Donations to Charity - 80G <span class="info-icon 1" id="infoIcon 1"
+                        title="Amount paid as donation to charitable institutions or certain recognized funds">ⓘ</span><br>
+                     <input type="text" id="charityDonations" style="margin-top: 8px;width: 350px;">
+                  </div>
+               </div>
+               <div style="display: flex; gap: 20px; cursor: pointer;">
+                  <div style="margin-top: 5px;">
+                     Interest on Educational Loan - 80E <span class="info-icon 1" id="infoIcon 1"
+                        title="Amount of interest paid on loan taken for higher education">ⓘ</span> <br>
+                     <input type="text" id="eduLoanInterest" style="margin-top: 8px; width: 350px;"> <br>
+                  </div>
+                  <div style="margin-top: 5px;cursor: pointer;">
+                     Interest on Housing Loan - 80EEA <span class="info-icon 1" id="infoIcon 1"
+                        title="Amount of interest paid on housing loansanctioned during 2022-2023(max:1.5L)">ⓘ</span>
+                     <br>
+                     <input type="text" id="housingLoanInterest" style="margin-top: 8px; width: 350px;">
+                  </div>
+               </div>
+               <div style="margin-top: 8px; cursor: pointer;">
+                  Employee's contribution to NPS - 80CCD <span class="info-icon 1" id="infoIcon 1"
+                     title="Includes voluntary contribution to National pension Scheme (NPS)under section 80CCD(1)and 80CCD(1B)">ⓘ</span>
+                  <br>
+                  <input type="text" id="npsContribution" style="margin-top: 8px; width: 350px;"><br>
+               </div>
+            </div>
+            <button style=" margin-top: 40px;  margin-left:300px;  background-color: #00c8ff;"
+               class="btn btn-primary btn-calculate" type="button" data-next="#nav-Summary">Calculate</button>
+
+         </div>
+
+
+         <div class="tab-pane fade" id="nav-Summary" role="tabpanel" aria-labelledby="nav-Summary-tab">
+            <button class="custom-btn" type="button" data-next="#nav-BasicDetails">Try the Calculator Again</button>
+            <P class="page4"><span style="font-size: 15px;">ClearTax Suggestion:</span> You should opt for Old Regime as
+               it allows you to avail exemptions and deductions from your income sources</P>
+            <table border="10px">
+               <tr class="table">
+                  <th width="300px"> </th>
+                  <th width="200px">Post-Budget (Old Regime)
+                     FY(2024-2025)</th>
+                  <th width="200px">Post-Budget (New Regime)
+                     FY(2024-2025)</th>
+               </tr>
+               <tr>
+                  <td>Total Income</td>
+                  <td id="totalIncomeOld"></td>
+                  <td id="totalIncomeNew"></td>
+               </tr>
+
+               <tr>
+                  <td>
+                     <!--- <div class="dropdown-container" onclick="toggleDropdown('dropdownOld', 'arrowOld')">-->
+                     Exemptions
+                     <!----  <span id="arrowOld" class="arrow down">&#9662;</span>
+                     </div>
+                     <select id="dropdownOld">
+                        <option value="exemptAllowances">Exempt Allowances</option>
+                        <option value="standardDeductions">Standard Deductions</option>
+                        <option value="chapterVIA">Chapter VI A Deductions</option>
+                     </select>-->
+                  </td>
+
+
+
+                  <td id="exemptionsOld"></td>
+                  <td id="exemptionsNew"></td>
+               </tr>
+
+               <tr>
+                  <td>Deductions</td>
+                  <td id="deductionsOld"></td>
+                  <td id="deductionsNew"></td>
+               </tr>
+               <tr>
+                  <td>Taxable Income</td>
+                  <td id="taxableIncomeOld"></td>
+                  <td id="taxableIncomeNew"></td>
+               </tr>
+               <tr>
+                  <td>Tax Due</td>
+                  <td id="taxDueOld"></td>
+                  <td id="taxDueNew"></td>
+               </tr>
+
+
+            </table>
+
+
+            <p style="margin-left:20px;"><strong>Tell your friends about the ClearTax income tax calculator</strong>
+            </p>
+            <p class="box">Wondering how much tax you will need to pay this financial year? Calculate it accurately on
+               the
+               ClearTax income tax calculator. It's simple, accurate and free! Try it now.</p>
+            <h4> Share on</h4><br>
+            <a  style="margin-top:2px; background-color: rgb(68, 255, 47); padding: 5px 10px; max-width: fit-content; text-decoration: none; color: whitesmoke; " href="https://api.whatsapp.com/" target="_blank"> ✆WHATSAPP</a>
+         <a style="background-color: rgb(47, 47, 255);margin-left: 30px; padding: 5px 10px; max-width: fit-content; text-decoration: none; color: whitesmoke; " href="https://www.facebook.com/">ⓕFACEBOOK</a>
+         <a style="background-color: rgb(47, 50, 255); padding: 5px 10px; max-width: fit-content; text-decoration: none; color: whitesmoke; margin-left: 30px; " href="https://x.com//">𝕏 X</a>
+      </div>
+      </div>
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+   <script src="step.js"></script>
+</body>
+
+</html> 
